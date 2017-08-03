@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>审核状态</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/审核状态.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+      <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+        <h1 class="title">审核状态</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="picture">
+            <img class="img" src="../img/审核中.png" alt="">
+            <div class="wenzi">
+                正在审核中
+            </div>
+        </div>
+        <div class="tijiao"><a href="党员与组织.html">关闭</a></div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+    $.ajax({
+        type: "post",
+        url: web+"report/reportInfo.do",
+        data: "",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("token", localStorage.token)
+        },
+        success: function (data) {
+            console.log(data);
+            var type=data.type;
+            switch (type){
+                case 0 :
+                    $(".img").attr("src","../img/审核中.png");
+                    $(".wenzi").html("正在审核中");
+                    break;
+                case 1 :
+                    $(".img").attr("src","../img/通过.png");
+                    $(".wenzi").html("审核通过");
+                    break;
+                case 2 :
+                    $(".img").attr("src","../img/失败.png");
+                    $(".wenzi").html("审核失败");
+                    break;
+            }
+        }
+    })
+</script>
+</body>
+</html>

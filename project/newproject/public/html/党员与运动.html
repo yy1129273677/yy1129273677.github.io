@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>党员与运动</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/党员与运动.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+         <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">党员与运动</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <form action="" class="form">
+            <input type="text" placeholder="在党员云互动搜索">
+            <img src="../img/搜索_搜索_1_.png" alt="">
+        </form>
+        <div class="list">
+
+        </div>
+        <div class="tianjia">
+            <img src="../img/发布btn.png" alt="">
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <ul>
+        {{#each rows}}
+        <li>
+            <a href="帖子详情.html?forumId={{forumId}}">
+                <div class="up">
+                    <div class="zhong">
+                        <img class="touxiang" src="../img/头像.png" alt="">
+                        <div class="left">
+                            <div class="xingming"> 姓名：{{username}}</div>
+                            <div class="shijian">
+                                <img src="../img/时间.png" alt="">
+                                <div class="time">{{currentTime}}</div>
+                                <img src="../img/声音.png" alt="">
+                                <div>公开</div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="dangyuan" src="../img/党员互动icon.png" alt="">
+                </div>
+                <div class="down">{{content}}</div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script>
+    var tpl = $("#tpl").html();
+    var temp = Handlebars.compile(tpl);
+    $.ajax({
+        type: "get",
+        url: web+"forum/forumList.do",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("token", localStorage.token)
+        },
+        success: function (data) {
+            console.log(data);
+            var html = temp(data);
+            $(".list").html(html);
+        }
+    });
+    $(".tianjia").click(function () {
+       window.location.href="两学一做讨论区.html"
+    })
+</script>
+</body>
+</html>

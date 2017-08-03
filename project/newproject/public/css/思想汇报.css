@@ -1,0 +1,60 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+.container .content .tijiao,
+.container .content .rudang{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    width: 300px;
+    background: red;
+    margin: 38px;
+    border-radius: 5px;
+
+}
+.container .content .tijiao{
+    position:absolute;
+    bottom: -10px;
+}
+.container .content .rudang{
+    position:absolute;
+    bottom: 60px;
+}
+.container .content .tijiao a ,
+.container .content .rudang a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+.container .content form .picture{
+    height: 100px;
+    width: 100px;
+    border:2px solid #cccccc;
+    margin: 10px;
+}
+.container .content .jia{
+    display: flex;
+    flex-wrap: wrap;
+}
+.container .content img{
+    height: 100px;
+    width: 100px;
+}
+
+.container .content .rudang:after{
+    content:'';
+    position: absolute;
+    top: 23px;
+    right: 13px;
+    border: 7px solid transparent;
+    border-top-color: #ffffff;
+}

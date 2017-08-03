@@ -1,0 +1,53 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+}
+.container .content li{
+    border:1px solid #0f0f0f;
+    height:100px;
+    margin:10px ;
+    display: flex;
+}
+.container .content img{
+    height:80px ;
+    margin:auto;
+}
+.container .content .down{
+    border:1px solid #cccccc;
+    height: 50px;
+    line-height: 50px;
+    background: #cccccc;
+    position: absolute;
+    bottom: 10px;
+    width:100%;
+}
+.container .content .down form{
+    display: flex;
+    justify-content: space-between;
+}
+.container .content .down form .left{
+    margin-left: 10px;
+}
+.container .content .down form .left input{
+    margin-left: 10px;
+}
+.container .content .down form .right{
+    margin-right: 10px;
+}
+.container .content .down form .right .tijiao{
+    padding: 10px;
+    background: red;
+    border:none;
+}

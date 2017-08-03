@@ -1,0 +1,41 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+
+}
+.container .content  li{
+    display: flex;
+    align-items: center;
+    border-bottom:1px solid #0f0f0f;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+
+.container .content li .left{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.container .content  img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.container .content .pic{
+    height: 44px;
+    width: 44px;
+    border:1px solid #cccccc;
+    margin-right: 10px;
+}

@@ -1,0 +1,60 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+.container .content input{
+    border:1px solid #222222;
+    width: 300px;
+    margin: 30px auto;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container .content .fangshi{
+    font-size: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #cccccc;
+}
+.container .content .detail .weixin{
+    display: flex;
+    border:1px solid #cccccc;
+    padding: 10px;
+}
+.container .content .detail .weixin .picture{
+    flex: 1 1 100px ;
+}
+.container .content .detail .weixin .jieshao{
+    flex:2 1 240px;
+}
+.container .content .detail .weixin .duihao{
+    flex:1 1 50px;
+}
+.container .content .detail .weixin .title{
+    font-size: 16px;
+    margin: 10px;
+}
+.container .content .tijiao{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    width: 300px;
+    background: red;
+    margin: 38px;
+    border-radius: 5px;
+    position:absolute;
+    bottom: -10px;
+}
+.container .content .tijiao a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}

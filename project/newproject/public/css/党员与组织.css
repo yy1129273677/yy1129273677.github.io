@@ -1,0 +1,33 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+.container .picture img{
+    width: 100%;
+}
+.container .lie img{
+    height: 80px;
+}
+.container .lie ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.container .lie ul li{
+    margin: 20px;
+    width:21%;
+}
+.container .lie ul li a{
+    display: block;
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}

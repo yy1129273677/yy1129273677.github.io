@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通知早知道</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/通知早知道.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+        <h1 class="title">通知早知道</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="xian">
+            <div class="wu">暂时没有任何消息</div>
+        </div>
+    </div>
+    <div class="tabs tabs-icon-top bottom">
+        <a class="tab-item  shouye">
+            <i class="icon iconfont icon-party"></i>
+            首页
+        </a>
+        <a class="tab-item tongzhi active">
+            <i class="icon iconfont icon-xiaoxi"></i>
+            通知早知道
+        </a>
+        <a class="tab-item wode ">
+            <i class="icon iconfont icon-yonghu"></i>
+            我的党建
+        </a>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <ul>
+        {{#each rows}}
+        <li>
+            <a href="新闻子页.html?newsId={{newsId}}&type={{type}}">
+                <div class="picture">
+                    <img src="../img/iconfont_grey.png" alt="">
+                </div>
+                <div class="detail">
+                    <h4 class="title">{{author}}</h4>
+                    <div class="time">{{currentTime}}</div>
+                    <div class="neirong">{{title}}</div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script>
+    var tpl=$("#tpl").html();
+    var tempel=Handlebars.compile(tpl);
+    $(".shouye").click(function () {
+        window.location.href = "首页.html";
+    });
+
+    $(".tongzhi").click(function () {
+        window.location.href = "通知早知道.html"
+    });
+    $(".wode").click(function () {
+        window.location.href = "我的党建.html"
+    });
+
+    $.ajax({
+        type: "get",
+        url: web+"news/newsList.do?page=1&rows=10&type=2",
+        beforeSend:function(xhr){
+            xhr.setRequestHeader("token",localStorage.token);
+        },
+        success: function (data) {
+            console.log(data);
+            console.log(localStorage.token);
+            var html=tempel(data);
+            if(data.rows.length>=1){
+                $(".content").html(html);
+                $(".content").find("li").click(function () {
+                    $(this).find("img").attr("src","../css/iconfont_gonggaotongzhi.png")
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

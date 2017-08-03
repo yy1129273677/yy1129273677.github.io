@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两学一做讨论区</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/两学一做讨论区.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+        <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title" id="title">我要发帖</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <form action="">
+            <div class="title">
+                <div class="wenzi">
+                    标题:
+                </div>
+                <input class="biaoti" type="text" name="content" placeholder="请输入标题">
+            </div>
+            <textarea class="wenben" placeholder="我要发帖"  name="content"></textarea>
+            <input type="button" id="button" value="发表">
+        </form>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+    $("#button").click(function () {
+        $.ajax({
+            type:"post",
+            url:web+"forum/saveForum.do",
+            beforeSend:function (xhr) {
+                xhr.setRequestHeader("token",localStorage.token)
+            },
+            data:$("form").serialize(),
+            success:function (data) {
+                console.log(data);
+                if(data.code==1){
+                    alert(data.msg);
+                    window.location.href="党员与运动.html"
+                }
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

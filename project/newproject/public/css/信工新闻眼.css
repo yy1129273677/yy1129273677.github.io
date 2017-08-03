@@ -1,0 +1,44 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+}
+.container .content li>a{
+    display: flex;
+    padding: 5px 0;
+    text-decoration: none;
+}
+.container .content .picture .new {
+    height: 85px;
+    width:100%;
+}
+.container .content li>a>div{
+    margin:0 10px;
+}
+.container .content .picture{
+    width:35%;
+}
+.container .content li .detail{
+    position: relative;
+    width:60%;
+    margin-top: -10px;
+}
+.container .content li .detail>.down{
+    display: flex;
+    font-size: 10px;
+    position: absolute;
+    width: 168px;
+    bottom:0;
+    justify-content:space-between;
+}

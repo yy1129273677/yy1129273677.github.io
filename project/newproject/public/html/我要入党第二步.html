@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我要入党第二步</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/我要入党第二步.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+       <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">我要入党</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <form action="" id="form">
+            <input type="file" class="file" name="myFile">
+            <div class="jia">
+                <div class="picture">
+                    <img class="img" src="../img/图片.png" alt="">
+                </div>
+            </div>
+            <div class="tijiao">提交审核</div>
+        </form>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+$('.file').hide();
+var str;
+$(".picture").click(function () {
+    $(".file").click();
+    $(".file")[0].onchange=function () {
+        var file=this.files[0];
+
+        var fr=new FileReader();
+        fr.readAsDataURL(file);
+        fr.onload=function () {
+            str=this.result;
+            $(".jia").prepend("<div class='picture'><img  src="+this.result+" ></div> ");
+            str=str.split(",")[1];
+            console.log(str);
+            $.ajax({
+                type:"post",
+                url:web+"image/uploadBase64.do",
+                data:{"myFile":str},
+                beforeSend:function (xhr) {
+                    xhr.setRequestHeader("token",localStorage.token)
+                },
+                success:function (data) {
+                    console.log(data)
+                }
+            })
+        }
+    }
+});
+
+
+$(".tijiao").click(function () {
+    window.location.href="我要入党第三步.html"
+})
+</script>
+</body>
+</html>

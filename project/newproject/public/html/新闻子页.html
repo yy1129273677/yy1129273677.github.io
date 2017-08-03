@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻子页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../iconfont/font_111/iconfont.css">
+    <link rel="stylesheet" href="../css/新闻子页.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+
+</head>
+<body>
+<div class="container" >
+    <div class="bar bar-header">
+
+          <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title" id="title"></h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <!--<div class="title1"></div>
+        <div class="picture">
+            <img src="" alt="">
+        </div>
+        <div class="detail"></div>-->
+    </div>
+    <div class="hidden">
+        <ul>
+            <li><a href=""><img src="../img/微信.png" alt="">微信</a></li>
+            <li><a href=""><img src="../img/朋友圈.png" alt="">朋友圈</a></li>
+            <li><a href=""><img src="../img/qq.png" alt="">QQ</a></li>
+            <li><a href=""><img src="../img/qq空间.png" alt="">QQ空间</a></li>
+        </ul>
+        <div class="quxiao"><span>取消</span></div>
+    </div>
+    <div class="foot tabs tabs-icon-only">
+        <a class="tab-item">
+            <i class="like icon iconfont icon-star red"></i>
+
+        </a>
+        <a class="tab-item">
+
+            <i class="like icon iconfont icon-link"></i>
+        </a>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <h3 class="title">{{title}}</h3>
+    <div class="picture">
+        <img src="{{pic}}" alt="">
+    </div>
+    <div class="detail"></div>
+</script>
+<script>
+    var tpl = $("#tpl").html();
+    var template = Handlebars.compile(tpl);
+    function getId(key){
+        var web=location.search;
+        var behind=web.split("?")[1];
+        var addr=behind.split("&");
+        var obj={};
+        addr.forEach(function (item) {
+            var arr=item.split('=');
+            obj[arr[0]]=arr[1];
+        });
+        return obj[key]
+    }
+    var url=web+"news/newsContent.do?newsId="+getId("newsId");
+    $.ajax({
+        type:"get",
+        url:url,
+        beforeSend:function(xhr){
+            xhr.setRequestHeader("token",localStorage.token);
+        },
+        success:function (data) {
+            console.log(data);
+            var html = template(data.data);
+            $(".content").html(html);
+            var content=data.data.content;
+            $(".detail").html(content);
+        }
+    });
+
+    $(".hidden").hide();
+    $(".like").click(function(){
+        $(".hidden").show();
+    });
+    $(".quxiao").click(function () {
+        $(".hidden").hide()
+    });
+    var type=parseInt(getId("type"));
+    console.log(type);
+    console.log(typeof (type));
+
+    switch (type){
+        case 0:
+            console.log(type);
+            $("#tiaozhuan").attr("href","信工新闻眼.html?type=0");
+            $("#title").html("信工新闻眼");
+            break;
+        case 1:
+            console.log(type);
+            $("#tiaozhuan").attr("href","掌上组织生活.html?type=1");
+            $("#title").html("掌上组织生活");
+            break;
+        case 2:
+            console.log(type);
+            $("#tiaozhuan").attr("href","通知早知道.html?type=2");
+            $("#title").html("通知早知道");
+            break;
+        case 3:
+            console.log(type);
+            $("#tiaozhuan").attr("href","信工新闻眼.html?type=3");
+            $("#title").html("党建一点通");
+            break;
+        case 4:
+            console.log(type);
+            $("#tiaozhuan").attr("href","信工新闻眼.html?type=4");
+            $("#title").html("党建大事件");
+            break;
+        case 5:
+            console.log(type);
+            $("#tiaozhuan").attr("href","信工新闻眼.html?type=5");
+            $("#title").html("党员风采录");
+            break;
+        case 6:
+            console.log(type);
+            $("#tiaozhuan").attr("href","信工新闻眼.html?type=6");
+            $("#title").html("随时随地学");
+            break;
+        case 7:
+            console.log(type);
+            $("#tiaozhuan").attr("href","信工新闻眼.html?type=7");
+            $("#title").html("随时随地做");
+            break;
+        case 8:
+            console.log(type);
+            $("#tiaozhuan").attr("href","信工新闻眼.html?type=8");
+            $("#title").html("两学一做在路上");
+            break;
+    }
+</script>
+</body>
+</html>

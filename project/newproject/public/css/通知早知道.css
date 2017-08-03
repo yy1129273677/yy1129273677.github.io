@@ -1,0 +1,51 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+}
+.container>.bottom .active{
+    color: red;
+}
+.container>.bottom i{
+    font-size: 30px;
+    padding: 10px;
+}
+.container>.bottom .tab-item{
+    font-size: 16px;
+}
+.container .content .xian{
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    height: 44px;
+}
+.container .content .xian .wu{
+    position: absolute;
+    font-size: 20px;
+    left: 108px;
+    bottom: -10px;
+    z-index: 100;
+    width: 180px;
+    background: #ffffff;
+    text-align: center;
+}
+.container .content a{
+    text-decoration: none;
+    color: #0f0f0f;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+.container .content a .detail{
+    margin: -5px 0 0 30px;
+}

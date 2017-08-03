@@ -1,0 +1,77 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+    background: #cccccc;
+}
+.container .content .form {
+    position: relative;
+}
+.container .content .form input{
+    border:1px solid #cccccc;
+    width: 350px;
+    margin: 20px auto;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+}
+.container .content .form img{
+    position: absolute;
+    top: 10px;
+    left: 106px;
+}
+.container .content .list li a{
+    text-decoration: none;
+}
+.container .content .list li {
+    border:1px solid #cccccc;
+    margin:10px 0;
+    background: #ffffff;
+    padding: 10px;
+}
+.container .content .list li .up{
+    display: flex;
+    justify-content: space-between;
+}
+.container .content .list li .up .touxiang{
+    height: 50px;
+    margin-right: 10px;
+}
+.container .content .list li .up .dangyuan{
+    height: 25px;
+}
+.container .content .list li .up .zhong{
+    display: flex;
+    align-items: center;
+}
+.container .content .list li .up .zhong .xingming{
+    margin-left: 10px;
+}
+.container .content .list li .up .zhong .shijian{
+    display: flex;
+    align-items: center;
+}
+.container .content .list li .up .zhong .shijian img{
+    height: 14px;
+    margin:3px 5px 0 2px;
+}
+.container .content .list li .down{
+    height: 50px;
+    margin-top: 10px;
+}
+.container .content .tianjia{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}

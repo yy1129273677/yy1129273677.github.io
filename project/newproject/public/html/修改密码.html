@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/修改密码.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+         <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">修改密码</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <form action="" id="form">
+            <div>旧密码:</div>
+            <input type="password" name="oldPwd" placeholder="请输入旧密码">
+            <div>新密码:</div>
+            <input type="password" name="newPwd" id="new"  placeholder="请输入新密码">
+            <input type="password" id="twice" placeholder="请再次输入新密码">
+            <input type="button" id="button" value="提交">
+        </form>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+    $("#button").click(function () {
+        var one=document.getElementById("new").value;
+        var two=document.getElementById("twice").value;
+        if(one==two){
+            $.ajax({
+                type: "post",
+                url: web+"user/updatePwd.do",
+                beforeSend:function(xhr){
+                    xhr.setRequestHeader("token",localStorage.token);
+                },
+                data:$("#form").serialize(),
+                success: function (data) {
+                    console.log(data);
+                    alert(data.msg)
+                }
+            })
+        }
+        else {
+            alert("请输入相同的新密码")
+        }
+    })
+</script>
+</body>
+</html>

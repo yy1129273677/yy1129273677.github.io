@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>掌上组织生活</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/掌上组织生活.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+       <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">掌上组织生活</h1>
+    </div>
+    <div class="content scroll-content has-header">
+
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <ul>
+        {{#each rows}}
+        <li>
+            <a href="新闻子页.html?newsId={{newsId}}&type={{type}}">
+                <div class="picture">
+                    <img src="{{pic}}" alt="">
+                </div>
+                <div class="detail">
+                    <h4>{{title}}</h4>
+                    <div class="down">
+                        <div class="time">{{currentTime}}</div>
+                        <div class="zhuangtai">
+                            <img src="../img/12-eye.png" alt="">
+                            <span>{{count}}</span></div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script>
+    var tpl = $("#tpl").html();
+    var template = Handlebars.compile(tpl);
+    $.ajax({
+        type:"get",
+        url: web+"news/newsList.do?page=1&rows=10&type=1",
+        beforeSend:function(xhr){
+            xhr.setRequestHeader("token",localStorage.token);
+        },
+        success:function(data){
+            console.log(data);
+            var html = template(data);
+            $(".content").html(html)
+        }
+    })
+</script>
+</body>
+</html>

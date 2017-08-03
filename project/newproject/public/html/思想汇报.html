@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>思想汇报</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/思想汇报.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+       <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">思想汇报</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <form action="">
+            <input type="file" class="file">
+            <div class="jia">
+                <div class="picture">
+                    <img id="img" src="../img/图片.png" alt="">
+                </div>
+            </div>
+            <!--<div class="rudang">
+                <a href="">入党积极分子</a>
+            </div>-->
+            <div class="tijiao">提交审核</div>
+        </form>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+    $('.file').hide();
+    var str;
+    var arr=[];
+    $(".picture").click(function () {
+        $(".file").click();
+
+        $(".file")[0].onchange=function () {
+            var file=this.files[0];
+            var fr=new FileReader();
+            fr.readAsDataURL(file);
+            fr.onload=function () {
+                str=this.result;
+                $(".jia").prepend("<div class='picture'><img src="+str+"></div>");
+                str=str.split(",")[1];
+                $.ajax({
+                    type:"post",
+                    url:web+"image/uploadBase64.do",
+                    data:{"myFile":str},
+                    beforeSend:function (xhr) {
+                        xhr.setRequestHeader("token",localStorage.token)
+                    },
+                    success:function (data) {
+                        console.log(data);
+                        arr.unshift(data.url);
+                    }
+                })
+            }
+        }
+    });
+    $(".tijiao").click(function () {
+        console.log(arr);
+        var formdata=new FormData();
+        formdata.append("pic_list",arr);
+        $.ajax({
+            type:"post",
+            url:web+"impress/saveImpress.do",
+            data:formdata,
+            beforeSend:function (xhr) {
+                xhr.setRequestHeader("token",localStorage.token)
+            },
+            success:function (data) {
+                console.log(data);
+                if(data.code==1){
+                    window.location.href="审核状态.html"
+                }
+               if(data.code==0){
+                   tishi(data)
+               }
+            },
+            contentType: false,
+            processData: false
+        })
+    })
+</script>
+</body>
+</html>

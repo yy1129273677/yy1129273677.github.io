@@ -1,0 +1,24 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+}
+.container .content li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 16px;
+    border-bottom: 1px solid #cccccc;
+}

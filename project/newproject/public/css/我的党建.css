@@ -1,0 +1,67 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+}
+.container>.bottom .active{
+    color: red;
+}
+.container>.bottom i{
+    font-size: 30px;
+    padding: 10px;
+}
+.container>.bottom .tab-item{
+    font-size: 16px;
+}
+.container .content .up{
+    width:100%;
+    height:40%;
+    background: red;
+    border-top: 1px solid #ffffff;
+    text-align: center;
+    padding: 35px;
+}
+.container .content .up a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+}
+.container .content .down li a{
+    display: flex;
+     text-decoration: none;
+     color: #0f0f0f;
+    height: 85px;
+    line-height: 85px;
+    border:1px solid #cccccc;
+    position: relative;
+}
+.container .content .down li a .shuoming{
+    padding: 10px;
+}
+.container .content .down li a .gengduo{
+    height: 20px;
+   position: absolute;
+    top:0;
+    bottom: 0;
+    margin:auto;
+    right: 10px;
+}
+#button{
+    height: 34px;
+    width:80%;
+    margin: 10px 10%;
+    background: indianred;
+    border-radius: 5px;
+    border:1px solid indianred;
+}

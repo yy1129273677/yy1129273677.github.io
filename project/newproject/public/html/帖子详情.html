@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>帖子详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/帖子详情.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header top">
+
+         <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">帖子详情</h1>
+
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="detail" id="detail">
+
+
+        </div>
+        <div class="detail" id="huifu">
+
+        </div>
+        <div class="huifu">
+            <input type="text" name="comment" id="input" placeholder="请输入回复的内容">
+            <input type="button" id="button" value="回复">
+        </div>
+        <div id="maodian"></div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <div class="up">
+        <div class="picture">
+            <img class="img" src="{{header}}" alt="">
+        </div>
+        <div class="right">
+            <div class="name">作者：{{username}}</div>
+            <div class="time">{{currentTime}}</div>
+        </div>
+    </div>
+    <div class="down">{{content}}</div>
+    <div class="shuoming">回复的内容：</div>
+</script>
+<script src="../js/gongyoujs.js"></script>
+<script id="exampel" type="text/x-handlebars-template">
+    <ul>
+        {{#each commentList}}
+        <li>
+            <div class="up">
+                <div class="picture">
+                    <img class="img" src="{{header}}" alt="">
+                </div>
+                <div class="right">
+                    <div class="name">留言人：{{username}}</div>
+                    <div class="time">{{timeFormat}}</div>
+                </div>
+            </div>
+            <div class="down">{{comment}}</div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script>
+    var tpl = $("#tpl").html();
+    var exampel = $("#exampel").html();
+    var temp = Handlebars.compile(tpl);
+    var temp1 = Handlebars.compile(exampel);
+    var src;
+    console.log(getId("forumId"));
+    function huoqu() {
+        $.ajax({
+            type: "get",
+            url: web + "forum/forumDetail.do?forum_id=" + getId("forumId"),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("token", localStorage.token)
+            },
+            success: function (data) {
+                var html = temp(data);
+                var neirong = temp1(data);
+                $("#detail").html(html);
+                $("#huifu").html(neirong);
+                console.log(data);
+                src = data.header;
+                console.log(src);
+                if (src) {
+                    console.log("1")
+                }
+                else {
+                    console.log("2");
+                    $(".img").attr("src", "../img/头像.png")
+                }
+            }
+        });
+    }
+    huoqu();
+    function huifu() {
+        $.ajax({
+            type: "post",
+            url: web + "forum/addComment.do",
+            data: {"forum_id": getId("forumId"), "comment": $("#input").val()},
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("token", localStorage.token)
+            },
+            success: function (data) {
+                console.log(data);
+                huoqu();
+                window.location = "#maodian";
+            }
+        });
+    }
+    $("#button").click(function () {
+        huifu();
+    });
+    $(window).keydown(function (e) {
+        var num = e.keyCode;
+        switch (num) {
+            case 13:
+                huifu();
+                break;
+        }
+    })
+</script>
+</body>
+</html>

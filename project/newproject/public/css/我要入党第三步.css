@@ -1,0 +1,59 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+.container .content input{
+    border:1px solid #222222;
+
+}
+.container .content .tab{
+    display: table;
+    margin: 20px;
+}
+.container .content .tab .width{
+    width: 250px;
+}
+.container .content .tab-row{
+    display: table-row;
+    height: 45px;
+}
+.container .content .tab-col{
+    display: table-cell;
+    text-align: right;
+    width: 75px;
+}
+.container .content .tab .right{
+    text-align: left;
+}
+.container .content .tijiao{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    width: 300px;
+    background: red;
+    margin: 38px;
+    border-radius: 5px;
+    position:absolute;
+    bottom: -10px;
+}
+.container .content .tijiao a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+#minzu{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 250px;
+    height: 34px;
+    border:1px solid #222222;
+}

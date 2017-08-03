@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人党建信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/个人党建信息.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header top">
+
+          <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">个人党建信息</h1>
+        <button class="button right" id="bianji">编辑</button>
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="detail">
+
+        </div>
+        <div id="baocun">保存</div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <form id="form" action="">
+        <div>
+            <div>头像</div>
+            <input type="file" id="file" disabled class="kexiu">
+            <img id="img" src="{{header}}" alt="">
+
+        </div>
+        <div>
+            <div>姓名</div>
+            <input type="text" name="username" disabled value="{{username}}"  class="kexiu">
+        </div>
+        <div>
+            <div>身份证号</div>
+            <input type="text" disabled="true" value="{{branchId}}">
+        </div>
+        <div>
+            <div>当前身份</div>
+            <input type="text" name="partyIdentity" value="{{partyIdentity}}" disabled class="kexiu">
+        </div>
+        <div>
+            <div>民族</div>
+            <input type="text" disabled value="{{nation}}" class="kexiu">
+        </div>
+    </form>
+</script>
+<script>
+    var tpl = $("#tpl").html();
+    var tempel = Handlebars.compile(tpl);
+    var str;
+    var arr = [];
+    $.ajax({
+        type: "get",
+        url: web + "user/userInfo.do",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("token", localStorage.token);
+        },
+        success: function (data) {
+            console.log(data);
+            var html = tempel(data.data);
+            $(".detail").html(html);
+
+            $("#file").hide();
+            $("#img").click(function () {
+                $("#file").click();
+                $("#file")[0].onchange = function () {
+                    var file = this.files[0];
+                    var fr = new FileReader();
+                    fr.readAsDataURL(file);
+                    fr.onload = function () {
+                        $("#img").attr("src", this.result);
+                        str = this.result;
+                        str = str.split(",")[1];
+                        $.ajax({
+                            type: "post",
+                            url: web + "image/uploadBase64.do",
+                            data: {"myFile": str},
+                            beforeSend: function (xhr) {
+                                xhr.setRequestHeader("token", localStorage.token)
+                            },
+                            success: function (data) {
+                                console.log(data);
+                                arr.unshift(data.url);
+
+                                $("#form").append('<input type="text" id="header" name="header">');
+
+
+                                $("#header").val(arr[0]);
+
+                                console.log(arr)
+                            }
+                        })
+                    }
+                }
+            })
+        }
+    });
+    $("#baocun").hide();
+    $("#bianji").click(function () {
+        $(".kexiu").removeAttr("disabled");
+        $("#baocun").show();
+    });
+    function baocun() {
+        $.ajax({
+            type: "post",
+            url: web + "user/modifyInfo.do",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("token", localStorage.token)
+            },
+            data: $("#form").serialize(),
+            success: function (data) {
+                console.log(data);
+                $("#baocun").hide();
+                $(".kexiu").attr("disabled","true");
+            }
+        });
+    }
+    $("#baocun").click(function () {
+       baocun()
+    });
+    $(window).keydown(function (e) {
+        var num=e.keyCode;
+        switch (num){
+            case 13:
+                baocun();
+                break;
+        }
+    })
+</script>
+</body>
+</html>

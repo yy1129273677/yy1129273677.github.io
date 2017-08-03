@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/登录页.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+       <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">登录</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="picture">
+            <img src="../img/logo.png" alt="">
+        </div>
+        <form action="" id="form">
+            <input class="shuru" type="text" name="id_card" placeholder="身份证号：">
+            <input class="shuru" type="password" name="password" placeholder="密码：">
+            <input type="button" id="button" value="登录">
+        </form>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+
+    $("#button").click(function () {
+        $.ajax({
+            type:"post",
+            url:web+"user/userLogin.do",
+            data:$("#form").serialize(),
+            success:function (data) {
+                console.log(data);
+                if(data.code==0){
+                    alert(data.msg)
+                }
+               if(data.code!=0) {
+                   console.log(data);
+                   localStorage.token=data.token;
+                   console.log(localStorage.token)
+                  window.location.href="我的党建.html"
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

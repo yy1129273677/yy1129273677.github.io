@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>民主评议</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/民主评议.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+         <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">民主评议</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="zhong">
+            <button class="zongjie">个人总结</button>
+            <button class="pingyi">民主评议</button>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+    $.ajax({
+        type:"post",
+        url:web+"nationComment/judgeComment.do",
+        beforeSend:function (xhr) {
+            xhr.setRequestHeader("token",localStorage.token)
+        },
+        success:function (data) {
+            console.log(data);
+            localStorage.commentid=/*data.tbComment.id*/"CEBBD1A4FF2147C8B9ED0CEA6AE90BCF";
+            console.log(localStorage.commentid);
+        }
+    });
+    $(".zongjie").click(function () {
+        window.location.href="个人总结.html";
+    });
+    $(".pingyi").click(function () {
+        window.location.href="评议须知.html"
+    })
+</script>
+</body>
+</html>

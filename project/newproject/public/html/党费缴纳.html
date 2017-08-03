@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>党费缴纳</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/党费缴纳.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+       <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">党费缴纳</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <form action="">
+            <input type="text" class="jiaona" placeholder="请输入缴纳金额">
+        </form>
+        <div class="fangshi">请选择支付方式</div>
+        <div class="detail">
+            <div class="weixin">
+                <div class="picture">
+                    <img src="../img/微信icon.png" alt="">
+                </div>
+                <div class="jieshao">
+                    <div class="title">
+                        微信支付
+                    </div>
+                    <div class="wenzi">
+                        使用微信支付，安全便捷
+                    </div>
+                </div>
+                <div class="duihao">
+                    <img class="img" src="../img/未选择.png" alt="">
+                </div>
+            </div>
+            <div class="weixin">
+                <div class="picture">
+                    <img src="../img/微信icon.png" alt="">
+                </div>
+                <div class="jieshao">
+                    <div class="title">
+                        支付宝
+                    </div>
+                    <div class="wenzi">
+                        支持有支付宝，网银的用户使用
+                    </div>
+                </div>
+                <div class="duihao">
+                    <img class="img" src="../img/未选择.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="tijiao"><a href="">确认支付</a></div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script>
+    $(".weixin").click(function () {
+        $(".weixin").find(".img").attr("src","../img/未选择.png")
+        $(this).find(".img").attr("src","../img/已选择.png")
+    })
+</script>
+</body>
+</html>

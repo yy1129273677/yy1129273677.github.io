@@ -1,0 +1,47 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.container .bar{
+    background: red;
+}
+.container .bar .title{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.container .content{
+    overflow: auto;
+}
+.container .content .title{
+    display: flex;
+}
+.container .content .title .biaoti{
+    width: 70%;
+    height: 44px;
+    margin:10px 0 ;
+    border:1px solid #cccccc;
+    border-radius: 5px;
+}
+.container .content .title .wenzi{
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    margin: 10px 20px 10px;
+}
+.container .content .wenben{
+    border:1px solid #cccccc;
+    border-radius: 5px;
+    height: 100px;
+    width:90%;
+    margin:auto;
+}
+#button{
+    height: 34px;
+    width:40%;
+    margin: 20px 100px;
+    background: indianred;
+    border-radius: 5px;
+    border:1px solid indianred;
+}

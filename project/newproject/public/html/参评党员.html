@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参评党员</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/参评党员.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+        <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title" id="title">参评党员</h1>
+    </div>
+    <div class="content scroll-content has-header">
+
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <ul>
+        {{#each rows}}
+        <li name="{{id}}">
+           <!-- <a class="a" href="获取党员的总结.html?user_id={{id}}" name="{{id}}">-->
+                <div class="left">
+                    <div class="pic"><img src="{{header}}" alt=""></div>
+                    <div class="name">{{username}}</div>
+                </div>
+                <div class="right">
+                    {{branchName}}
+                </div>
+         <!--   </a>-->
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script>
+    var tpl=$("#tpl").html();
+    var tempel=Handlebars.compile(tpl);
+    $.ajax({
+        type:"get",
+        url:web+"nationComment/userList.do",
+        beforeSend:function (xhr) {
+            xhr.setRequestHeader("token",localStorage.token)
+        },
+        data:{"select_branch":getId("id")},
+        success:function (data) {
+            console.log(data);
+            var html=tempel(data);
+            $(".content").html(html);
+            $("li").click(function () {
+                var userid=$(this).attr("name");
+                $.ajax({
+                    type:"get",
+                    url:web+"nationComment/isComment.do",
+                    beforeSend:function (xhr) {
+                        xhr.setRequestHeader("token",localStorage.token)
+                    },
+                    data:{"comment_id":localStorage.commentid,"other_user_id":userid},
+                    success:function (data) {
+                        console.log(data);
+                        if(data.code==0){
+                          /*  alert(data.msg);*/
+                           /* $(".content").append("<div class='tishi'>"+data.msg+"</div>");
+                            $(".tishi").css({
+                                "text-align":"center",
+                                "bottom":"0",
+                                "position":"fixed",
+                                "z-index":"1000",
+                                "background":"black",
+                                "width":"80%",
+                                "height":"44px",
+                                "line-height":"44px",
+                                "margin":"0 10%",
+                                "color":"#fff"
+                            });
+                            $(".tishi").animate({bottom:'50%'},function(){
+                                setTimeout(function () {
+                                    $(".tishi").remove()
+                                },1000);
+                            })*/
+                            tishi(data);
+                        }
+                        if(data.code==1){
+                            window.location.href="获取党员的总结.html?user_id="+userid
+                        }
+                    }
+                })
+            })
+        }
+    });
+
+    console.log(localStorage.arr) ;
+
+</script>
+</body>
+</html>

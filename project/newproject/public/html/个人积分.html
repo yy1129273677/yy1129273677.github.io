@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人积分</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/个人积分.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+         <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+        <h1 class="title">个人量化积分</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="picture">
+            <div class="sum"></div>
+        </div>
+        <div class="mingxi">
+            <div><img src="../img/积分明细icon@2x.png" alt=""></div>
+            <div class="wenzi">积分明细</div>
+        </div>
+        <div class="guize">
+            <div>积分规则</div>
+            <div><img src="../img/问号icon@2x.png" alt=""></div>
+        </div>
+        <div class="detail">
+            <ul>
+                <li>
+                    <div>查看通知</div>
+                    <div>1</div>
+                </li>
+                <li>
+                    <div>查看新闻眼</div>
+                    <div>0.1</div>
+                </li>
+                <li>
+                    <div>查看积分</div>
+                    <div>1</div>
+                </li>
+                <li>
+                    <div>互动发帖</div>
+                    <div>0.1</div>
+                </li>
+                <li>
+                    <div>参与民主评议</div>
+                    <div>2</div>
+                </li>
+                <li>
+                    <div>学习党建知识</div>
+                    <div>1</div>
+                </li>
+                <li>
+                    <div>登录app</div>
+                    <div>0.1</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<!--<script id="tpl" type="text/x-handlebars-template">
+    <ul>
+        {{#each rows}}
+        <li>
+            <div>{{typeName}}</div>
+            <div>+{{singleDesc}}</div>
+        </li>
+        {{/each}}
+    </ul>
+</script>-->
+<script>
+   /* var tpl=$("#tpl").html();
+    var tempel=Handlebars.compile(tpl);*/
+
+    $.ajax({
+        type:"get",
+        url:web+"integral/integralList.do?page=0&rows=20",
+        beforeSend:function (xhr) {
+            xhr.setRequestHeader("token",localStorage.token)
+        },
+        success:function (data) {
+            console.log(data);
+          /*  var html=tempel(data);
+            $(".detail").html(html);*/
+            var sum=data.rows[0].totalScore;
+            console.log(sum);
+            $(".sum").text(sum)
+
+        }
+    });
+   $(".mingxi").click(function () {
+       window.location.href="积分明细.html"
+   })
+</script>
+</body>
+</html>

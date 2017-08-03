@@ -1,0 +1,89 @@
+*{
+    padding:0;
+    margin:0;
+    -moz-box-sizing: border-box;
+    text-decoration: none;
+}
+.container>.top .left{
+    background-color: red;
+    width: 130px;
+    height: 35px;
+    background: url("../img/logo.png");
+    background-size: cover;
+    padding: 10px;
+  }
+.container>.top {
+    background-color: red;
+}
+.container>.top .right{
+    background-color: red;
+    color: #ffffff;
+    font-size: 16px;
+}
+.container>.bottom .active{
+    color: red;
+}
+.container>.bottom i{
+    font-size: 30px;
+    padding: 10px;
+}
+.container>.bottom .tab-item{
+    font-size: 16px;
+}
+.swiper-container {
+    height: 152px;
+}
+.container .btn ul{
+    display: flex;
+    flex-wrap: wrap;
+    background: url("../img/bt_bg.png") no-repeat;
+    background-size: cover;
+   /* background-position: 10px 10px;*/
+}
+.container .btn ul li{
+    flex:1 1 33.33%;
+    text-align: center;
+    margin: 6px 0;
+}
+.container .btn ul li img{
+    height: 50px;
+}
+.container .btn ul li div{
+    font-size: 16px;
+    color: #000;
+}
+.container .eight img{
+    width: 100%;
+}
+.container .pic-nav{
+    background: url("../img/专栏.png");
+    width:100%;
+    height: 164px;
+    background-size: contain;
+    margin-top: -5px;
+}
+.container .content{
+    overflow:auto;
+}
+.container .pic-nav{
+    display:flex;
+}
+.container .pic-nav a{
+    display: block;
+}
+.container .pic-nav .div{
+    width:33.33%;
+    height: 100%;
+}
+.container .pic-nav>.right>.up,
+.container .pic-nav>.right>.down{
+    height:50%;
+    width:100%;
+}
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+

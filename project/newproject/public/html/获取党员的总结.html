@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>该党员的个人总结</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/ionic.css">
+    <link rel="stylesheet" href="../css/获取党员的个人总结.css">
+    <link rel="stylesheet" href="../iconfont/font_67z478kozmklz0k9/iconfont.css">
+    <link rel="stylesheet" href="../css/gongyou.css">
+</head>
+<body>
+<div class="container">
+    <div class="bar bar-header">
+
+
+            <span id="tiaozhuan">
+            <i class="icon iconfont icon-fanhui"></i>
+        </span>
+
+
+        <h1 class="title" id="title">该党员的个人总结</h1>
+    </div>
+    <div class="content scroll-content has-header">
+        <div class="picture">
+
+        </div>
+        <div class="down">
+            <form action="">
+                <div class="left">
+                    <input type="radio" value="0" name="dengji" class="radio">优
+                    <input type="radio" value="1" name="dengji" class="radio" >良
+                    <input type="radio" value="2" name="dengji" class="radio">中
+                    <input type="radio" value="3" name="dengji" class="radio">差
+                </div>
+                <div class="right">
+                    <input type="button" value="提交" class="tijiao">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/handlebar.js"></script>
+<script src="../js/gongyoujs.js"></script>
+<script id="tpl" type="text/x-handlebars-template">
+    <ul>
+        {{#each picList}}
+        <li><img src="{{picUrl}}" alt=""></li>
+        {{/each}}
+    </ul>
+</script>
+<script>
+    var tpl=$("#tpl").html();
+    var tempel=Handlebars.compile(tpl);
+    var perid;
+    var otherid;
+    $.ajax({
+        type:"get",
+        url:web+"nationComment/userSummary.do",
+        beforeSend:function (xhr) {
+            xhr.setRequestHeader("token",localStorage.token)
+        },
+        headers:{
+            "token":localStorage.token
+        },
+        data:{"user_id":getId("user_id"),"comment_id":localStorage.commentid},
+        success:function (data) {
+            console.log(data);
+            var html=tempel(data);
+            $(".picture").html(html);
+            perid=data.tbCommentUser.id;
+            otherid=data.tbCommentUser.userId;
+        }
+    });
+    $(".img").click(function () {
+        window.location.href="参评党员.html?id="+localStorage.arr;
+    });
+    var num;
+    $(".radio").click(function () {
+        console.log(this.value);
+        num=this.value;
+    });
+    $(".tijiao").click(function () {
+        console.log(num);
+        console.log(perid);
+        console.log(otherid);
+        $.ajax({
+            type:"get",
+            url:web+"nationComment/submitComment.do",
+            beforeSend:function (xhr) {
+                xhr.setRequestHeader("token",localStorage.token)
+            },
+            data:{"id":perid,"other_user_id":otherid,"type":num},
+            success:function (data) {
+                console.log(data);
+                    alert(data.msg);
+                    window.location.href="参评党员.html?id="+localStorage.arr;
+
+            }
+        })
+    })
+</script>
+</body>
+</html>
