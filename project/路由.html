@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由</title>
+    <style>
+        #bottom .nav{
+            display: flex;
+            justify-content: space-around;
+        }
+        .neirong{
+            height: 200px;
+            margin: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+            border:1px solid #cccccc;
+           /* display: inline-block;*/
+            width:32%;
+            text-align: center;
+            line-height: 44px;
+        }
+    </style>
+</head>
+<body>
+<div id="bottom">
+    <keep-alive>
+        <router-view></router-view>
+    </keep-alive>
+    <div class="nav">
+        <router-link :to="{name:'home',query:{id:33333}}" class="router-link" >home</router-link>
+        <router-link :to="{path:'/message',query:{id:22}}" class="router-link">message</router-link>
+        <!--<router-link to="/person" class="router-link">person</router-link>-->
+        <a href="#person?id=1">person</a>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<template id="home">
+    <div class="home">
+        <div class="neirong" style="background-color: #FF4400">home
+            <input type="text">
+            <input type="button" @click="tiaozhuan" value="tiaodao message">
+        </div>
+    </div>
+</template>
+<template id="message">
+    <div class="message">
+       <div class="neirong" style="background-color: blue">message
+           <input type="button" value="back" @click="fanhui">
+       </div>
+    </div>
+</template>
+<template id="person">
+    <div class="person">
+        <div class="neirong" style="background-color: #FF0000">person</div>
+    </div>
+</template>
+<script>
+    var home={
+        template:"#home",
+        methods:{
+            tiaozhuan:function () {
+              this.$router.push("message")
+            }
+        },/*如果view使用了keep-alive后，就只执行一次created   mounted*/
+        created:function () {
+            console.log("created");
+            console.log(this.$route.query.id)
+        },
+        /*之后的参数获取*/
+        watch:{
+            user:function (newvalue, oldvalue) {
+
+            },
+            title:function () {
+
+            },
+            "$route":function () {
+                if(this.$route.query.id){
+                    console.log(this.$route.query.id)
+                }
+            }
+        },
+        activated:function () {
+            console.log("activated");
+
+            console.log(this.$route.query.id)
+        },
+        deactivated:function () {
+            console.log("deactivated")
+        }
+    };
+    var message={
+        template:"#message",
+        methods:{
+            fanhui:function () {
+                this.$router.go(-1)
+            }
+        }
+    };
+    var person={
+        template:"#person"
+    };
+    var routes=[
+        {
+            name:"home",
+            path:"/home",
+            component:home
+        },
+        {
+            path:"/message",
+            component:message
+        },
+        {
+            path:"/person",
+            component:person
+        },
+        {
+            path:"/",
+            component:home
+        }
+    ];
+    var routes=new VueRouter({
+        routes:routes
+    });
+    new Vue({
+        el:"#bottom",
+        router:routes
+    })
+</script>
+</body>
+</html>
