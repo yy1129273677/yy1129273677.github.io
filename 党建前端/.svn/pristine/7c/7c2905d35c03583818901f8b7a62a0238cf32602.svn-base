@@ -1,0 +1,127 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import index from '../components/main/index.vue'
+import mainHeader from '../components/main/mainHeader.vue'
+import myDj from '../components/main/myDj.vue'
+import login from '../components/common/login.vue'
+import comment from '../components/handleLife/comment.vue'
+import forOrgan from '../components/handleLife/forOrgan.vue'
+import reportImpress from '../components/handleLife/reportImpress.vue'
+import everyPhoto from '../components/mainMiddle/everyPhoto.vue'
+import handleLife from '../components/mainMiddle/handleLife.vue'
+import historyToday from '../components/mainMiddle/historyToday.vue'
+import partyPlay from '../components/mainMiddle/partyPlay.vue'
+import partyTong from '../components/mainMiddle/partyTong.vue'
+import moneySub from '../components/myDj/moneySub.vue'
+import myInfo from '../components/myDj/myInfo.vue'
+import myIntegral from '../components/myDj/myIntegral.vue'
+import resetPwd from '../components/myDj/resetPwd.vue'
+import newsList from '../components/news/newsList.vue'
+import newsDetail from '../components/news/newsDetail.vue'
+
+
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: '默认',
+      component: index
+    },
+    {
+      path: '/index',
+      name: '首页',
+      component: index,
+      children:[
+        {
+          path:'/handleLife',
+          name:'掌上组织生活',
+          component:handleLife,
+          meta:{
+            role:true
+          }
+        },
+        {
+          path:'/partyPlay',
+          name:'党员云互动',
+          component:partyPlay,
+          meta:{
+            role:true
+          }
+        },
+        {
+          path:'/partyTong',
+          name:'党建一点通',
+          component:partyTong,
+          meta:{
+            role:true
+          }
+        },
+        {
+          path:'/historyToday',
+          name:'历史上的今天',
+          component:historyToday,
+          meta:{
+            role:true
+          }
+        },
+        {
+          path:'/everyPhoto',
+          name:'随时随地拍',
+          component:everyPhoto,
+          meta:{
+            role:true
+          }
+        }
+      ]
+    },
+    {
+      path: '/login',
+      name: '登录',
+      component: login
+    },
+    {
+      path: '/myDj',
+      name: '我的党建',
+      component: myDj,
+      children:[
+        {
+          path:'/myInfo',
+          name:'个人信息',
+          component:myInfo,
+          meta:{
+            role:true
+          }
+        },
+        {
+          path:'/myIntegral',
+          name:'个人量化积分',
+          component:myIntegral,
+          meta:{
+            role:true
+          }
+        },
+        {
+          path:'/resetPwd',
+          name:'修改密码',
+          component:resetPwd,
+          meta:{
+            role:true
+          }
+        },
+        {
+          path:'/moneySub',
+          name:'党费缴纳',
+          component:moneySub,
+          meta:{
+            role:true
+          }
+        },
+      ]
+
+    },
+
+  ]
+})
