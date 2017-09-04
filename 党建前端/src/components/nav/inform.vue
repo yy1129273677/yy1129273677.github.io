@@ -69,6 +69,7 @@
       methods:{
         selected(num){
           this.type=num;
+          document.body.scrollTop=0;
         },
           getdata(){
               var _this=this;
