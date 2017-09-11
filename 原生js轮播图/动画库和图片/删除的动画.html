@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除的动画</title>
+    <link rel="stylesheet" href="animate.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin:0;
+        }
+        .box{
+            height: 500px;
+            width:500px;
+            background-color: #2e2e2e;
+            margin: 20px;
+            display: flex;
+        }
+        .box>.del{
+            height:100px;
+            width:100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: #cccccc;
+            margin:auto;
+            animation:flipOutY 1s linear forwards /*infinite*/;
+            animation-play-state: paused;
+        }
+     /*   .box:hover .del{
+            animation-play-state: running;
+        }*/
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="del" id="del">
+        要删除的对象
+    </div>
+</div>
+<script>
+    var box=document.getElementById('box');
+    box.onclick=function () {
+        var del=document.getElementById('del');
+        del.style.animationPlayState='running'
+    }
+</script>
+</body>
+</html>

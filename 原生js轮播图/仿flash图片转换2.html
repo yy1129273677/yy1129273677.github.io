@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿flash图片转换2</title>
+    <link rel="stylesheet" href="仿flash图片转换2.css">
+</head>
+<body>
+<div id="box" class="box">
+    <div class="up">
+        <div class="detail">
+            <div class="text">图片描述</div>
+            <div class="num">图片数量</div>
+        </div>
+        <div class="left">
+            <a class="pre" href="javascript:"></a>
+        </div>
+        <div class="right">
+            <a class="next" href="javascript:"></a>
+        </div>
+        <ul class="big_pic">
+            <li style="z-index: 1;"><img src="动画库和图片/01.jpg"></li>
+            <li><img src="动画库和图片/02.jpg"></li>
+            <li><img src="动画库和图片/03.jpg"></li>
+            <li><img src="动画库和图片/04.jpg"></li>
+            <li><img src="动画库和图片/05.jpg"></li>
+            <li><img src="动画库和图片/06.jpg"></li>
+        </ul>
+    </div>
+    <div class="down">
+        <ul class="samll_pic">
+            <li style="opacity: 1;"><img src="动画库和图片/01.jpg"></li>
+            <li><img src="动画库和图片/02.jpg"></li>
+            <li><img src="动画库和图片/03.jpg"></li>
+            <li><img src="动画库和图片/04.jpg"></li>
+            <li><img src="动画库和图片/05.jpg"></li>
+            <li><img src="动画库和图片/06.jpg"></li>
+        </ul>
+    </div>
+</div>
+<script src="js库.js"></script>
+<script>
+    function tab(){
+        for(var i=0;i<oLismall.length;i++){
+            starMove(oLismall[i],'opacity',30)
+        }
+        starMove(oLismall[now],'opacity',100);
+
+        oLiBig[now].style.zIndex = nowZIndex++;
+        oLeft.style.zIndex = parseInt(getStyle(oLeft, 'z-index')) + 1;
+        oRight.style.zIndex = parseInt(getStyle(oRight, 'z-index')) + 1;
+        oDetail.style.zIndex=parseInt(getStyle(oDetail, 'z-index')) + 1;
+        oLiBig[now].style.height = 0;
+        starMove(oLiBig[now], 'height', 320);
+
+        var length=oLismall[0].offsetWidth+parseFloat(getStyle(oLismall[0],'margin-left'));
+        if(now==0){
+            starMove(oSmallPic,'left',0)
+        }
+        else if(now==oLismall.length-1){
+            starMove(oSmallPic,'left',-(now-2)*length)
+        }
+        else {
+            starMove(oSmallPic,'left',-(now-1)*length)
+        }
+        oText.innerText=arr1[now];
+        oNum.innerText=arr2[now];
+    }
+
+    var oBox = document.getElementById('box');
+    var oLeft = getByClass(oBox, 'left')[0];
+    var oRight = getByClass(oBox, 'right')[0];
+    var oPre = getByClass(oBox, 'pre')[0];
+    var oNext = getByClass(oBox, 'next')[0];
+    var oSmallPic = getByClass(oBox, 'samll_pic')[0];
+    var oLismall = oSmallPic.getElementsByTagName('li');
+    var oBigPic = getByClass(oBox, 'big_pic')[0];
+    var oLiBig = oBigPic.getElementsByTagName('li');
+    var oDetail=getByClass(oBox,'detail')[0];
+    var oText=getByClass(oBox,'text')[0];
+    var oNum=getByClass(oBox,'num')[0];
+    var nowZIndex = 2;
+    var now = 0;
+    var arr1=['这是图片1',
+        '这是图片2',
+        '这是图片3',
+        '这是图片4',
+        '这是图片5',
+        '这是图片6'];
+    var arr2=['1/6','2/6','3/6','4/6','5/6','6/6'];
+    oText.innerText=arr1[0];
+    oNum.innerText=arr2[0];
+
+    oPre.onmouseover = oLeft.onmouseover = function () {
+        starMove(oPre, 'opacity', 100)
+    };
+    oPre.onmouseout = oLeft.onmouseout = function () {
+        starMove(oPre, 'opacity', 0)
+    };
+    oNext.onmouseover = oRight.onmouseover = function () {
+        starMove(oNext, 'opacity', 100)
+    };
+    oNext.onmouseout = oRight.onmouseout = function () {
+        starMove(oNext, 'opacity', 0)
+    };
+
+    for (var i = 0; i < oLismall.length; i++) {
+        oLismall[i].dataNum = i;
+
+        oLismall[i].onclick = function () {
+
+            if (this.dataNum == now) {
+                return
+            }
+            now = this.dataNum;
+
+            tab();
+
+        };
+        oLismall[i].onmouseover = function () {
+            starMove(this, 'opacity', 100)
+        };
+        oLismall[i].onmouseout = function () {
+            if (this.dataNum != now) {
+                starMove(this, 'opacity', 30)
+            }
+        }
+    }
+    oPre.onclick=function () {
+        now--;
+        if(now==-1){
+            now=oLismall.length-1;
+        }
+        tab()
+    };
+    oNext.onclick=function () {
+        now++;
+        if(now==oLismall.length){
+            now=0;
+        }
+        tab()
+    };
+    var timer=setInterval(oNext.onclick,2000);
+    oBox.onmouseover=function () {
+        clearInterval(timer)
+    };
+    oBox.onmouseout=function () {
+        timer=setInterval(oNext.onclick,2000);
+    }
+</script>
+</body>
+</html>
