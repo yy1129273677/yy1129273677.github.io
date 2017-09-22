@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cronitor web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="cronitor%20web.css">
+    <style>
+        @media screen and (min-width:1201px){
+            .header>.section1>.last{
+                display: none;
+            }
+
+        }
+        @media screen and (min-width: 993px) and (max-width: 1200px) {
+            .header>.section1>.last{
+                display: none;
+            }
+        }
+        @media screen and (min-width: 769px) and (max-width: 992px) {
+            .header>.section1>.last{
+                display: none;
+            }
+            .header>.section1 .none{
+                display: none;
+            }
+            .section2 img{
+                height: 250px;
+                width: 600px;
+            }
+            .section3 img{
+                height: 150px;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .header>.section1>.right,
+            .header>.section1 .disappear{
+                display: none;
+            }
+            .header>.section1{
+                justify-content: space-between;
+                padding: 0 10px;
+                position: relative;
+            }
+            .header .memu{
+                height: 44px;
+                transition: all 0.5s linear;
+            }
+            .header .memu:hover{
+                height: 250px;
+            }
+            .header .memu>ul{
+                visibility: hidden;
+                position: absolute;
+                bottom:0;
+                left: 30px;
+                line-height: 30px;
+            }
+            .header .memu:hover ul{
+                visibility: visible;
+            }
+            .section2>.box>.title{
+                font-size: 25px;
+            }
+            .section2 img{
+                height: 150px;
+                width: 300px;
+            }
+            .section3 img{
+                display: none;
+            }
+            .section3 .text{
+               text-align: center;
+            }
+            .section3>.box>.block1{
+                width:100%;
+            }
+            .section3 .shift{
+                margin-left: -40px;
+            }
+            .section4 .block{
+                display: flex;
+                flex-direction: column;
+            }
+            .section4 .block .picture1{
+                float: left;
+            }
+            .section4 .block .picture2{
+                width:100%;
+                height: 140px;
+            }
+            .section4>.box>.block>div{
+                width:100%;
+            }
+            .section4>.box>.button{
+                display: flex;
+                flex-direction: column;
+                line-height: 50px;
+                text-align: center;
+            }
+            .section5 .detail{
+                margin-left: 10px;
+                margin-right: 10px;
+                width:100%;
+            }
+            .section5 img{
+                max-width: 100%;
+                height:auto;
+            }
+            .section5>.box>.down .block{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="section1">
+        <div class="left">
+            <div>
+                <a href="">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                    <span>CRONITOR</span>
+                </a>
+            </div>
+            <div class="disappear">
+                <a href="">PRICING</a>
+            </div>
+            <div class="disappear">
+                <a href="">DOCS</a>
+            </div>
+            <div class="none disappear">
+                <a href="">INTEGRATIONS</a>
+            </div>
+            <div class="disappear">
+                <a href="">LIBRSRIES</a>
+            </div>
+            <div class="none disappear">
+                <a href="">TEL866-979-9773</a>
+            </div>
+        </div>
+        <div class="right">
+            <div><a href="">LOGIN</a></div>
+            <div>
+                <a href=""><span>SIGNUP</span></a>
+            </div>
+        </div>
+        <div class="last memu">
+            <a href=""><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+            <ul>
+                <li><a href="">PRICING</a></li>
+                <li><a href="">DOCS</a></li>
+                <li><a href="">INTEGRATIONS</a></li>
+                <li><a href="">LIBRSRIES</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">SIGNUP</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="section2">
+    <div class="box">
+        <div class="title">
+            Monitor cron jobs, microservices and almost
+            anything else.
+        </div>
+        <div>
+            <a href=""><span>USE CRONITORFORFREE</span></a>
+        </div>
+        <div>
+            <img src="https://cronitor.io/static/img/homepage/example.656ea2c0a5e5.png" alt="">
+        </div>
+    </div>
+</div>
+<div class="section3">
+    <div class="box">
+        <div class="block1">
+            <div class="text  col-sm-6">
+                <h2>Easy cron monitoring</h2>
+                <div>
+                    Intelligent cron job and scheduled task monitoring. Receive alerts when your jobs fail. See history and performance trends from any device. Sleep better at night with improved visibility into your jobs, tasks and scripts.
+                </div>
+            </div>
+            <div class="picture  col-sm-6">
+                <img src="https://cronitor.io/static/img/homepage/status.9f4795750bb4.png" alt="">
+            </div>
+        </div>
+        <div class="block1">
+            <div class="picture col-sm-6">
+                <img src="https://cronitor.io/static/img/homepage/binoculars.497b9b95fba8.png" alt="">
+            </div>
+            <div class="text shift  col-sm-6">
+                <h2>Service health checks</h2>
+                <div>
+                    If it can make or receive HTTP requests you can monitor it with Cronitor. Monitor microservices, websites, APIs and almost anything else. Global uptime monitoring and powerful health checks for your critical services.
+                </div>
+            </div>
+        </div>
+        <div class="block1">
+            <div class="text  col-sm-6">
+                <h2>Instant alerts</h2>
+                <div>
+                    Cronitor alerts are fast because we continuously evaluate your monitoring activity. Ensure the right people are notified with easy integrations like Slack, Hipchat and PagerDuty.
+                </div>
+            </div>
+            <div class="picture col-sm-6">
+                <img src="https://cronitor.io/static/img/homepage/email.442b1849a36e.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section4">
+    <div class="box">
+        <div>
+            <h1>How Cronitor Works</h1>
+        </div>
+        <div class="button">
+            <div><a href=""><span>Cron Monitoring</span></a></div>
+            <div><a href="">Heartbeat Mornitoring</a></div>
+            <div><a href="">Health Checks</a></div>
+        </div>
+        <div class="block">
+            <div class=" col-sm-6 ">
+                <div class="text">
+                    Create a new cron job monitor using your cron schedule. You will be given a unique ping URL.
+                </div>
+                <div>
+                    <img  class="picture1" height="156" src="https://cronitor.io/static/img/product/not-on-schedule.897798b72ba0.png" alt="">
+                </div>
+            </div>
+            <div class=" col-sm-6">
+                <div class="text">
+                    Add the ping to your crontab or your script directly. Ping before and after your job to monitor duration.
+                </div>
+                <div>
+                    <img  class="picture2" width="350" src="../动画库和图片/QQ截图1.9.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div>
+            Want to see more?
+            <a href="">Take a look at a read-only Cronitor dashboard</a>
+        </div>
+    </div>
+</div>
+<div class="section5">
+    <div class="box">
+        <div class="title">
+            <h2>Used by individuals, startups and Fortune 500 companies</h2>
+        </div>
+        <div class="picture">
+            <img  src="https://cronitor.io/static/img/customers/mosaic.042c42afffab.png" alt="">
+        </div>
+        <div class="detail">
+            <div class=" col-sm-6 ">
+                <div>I was finding too many cases where our cron jobs would silently fail - we sometimes would not find
+                    out for days that a job was broken. Cronitor gives our team the confidence and peace of mind that if
+                    a job is not running, we'll know about it.
+                </div>
+                <div>-Gary Malouf, VP of Technology <a href="">AdAgility</a></div>
+            </div>
+            <div class=" col-sm-6 ">
+                <div>Cronitor provides a simple way for us to report the general health of all of our services. The API
+                    is extremely simple to use, and integration with PagerDuty has made this a critical component of our
+                    monitoring infrastructure.
+                </div>
+                <div>- Mark Greene, Director of Platform <a href="">EverTrue</a></div>
+            </div>
+            <div class=" col-sm-6 ">
+                <div>Cronitor has increased our Operations staff's efficiency and responsiveness immensely. Their modern spin on micro-monitoring represents a best-in-class solution to the age old problem of visibility.
+                </div>
+                <div> -Ethan Erchinger, Director of Operations <a href="">Chime</a></div>
+            </div>
+            <div class=" col-sm-6 ">
+                <div>Before we used Cronitor, we had an important cron job fail silently for over a month. We use
+                    Cronitor so that will never happen again.
+                </div>
+                <div>- Natalie Gordon, CEO <a href="">BabyList</a></div>
+            </div>
+        </div>
+        <div class="down">
+            <h2>Monitoring Made Easy</h2>
+            <div class="block">
+                <div><a href=""><span>USE CRONITORFORFREE</span></a></div>
+                <div>or</div>
+                <div><a href=""> SEE PLANS & PRICING</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section6">
+    <div>© 2017 Cronitor.io</div>
+    <div>Crafted in Berkeley</div>
+    <div><a href="">Blog</a></div>
+    <div><a href="">Terms</a></div>
+    <div><a href="">Privacy</a></div>
+    <div><a href="">Status</a></div>
+    <div><a href="">Docs</a></div>
+    <div><a href="">FAQ</a></div>
+    <div><a href="">Contact Us</a></div>
+</div>
+<footer class="footer">
+    <div><a href="">Microservice Health checks</a></div>
+    <div><a href="">Windows Scheduled Task Monitoring</a></div>
+    <div><a href="">Cron Job Monitoring</a></div>
+    <div><a href="">Microservice Monitoring</a></div>
+    <div><a href="">Django Health Checks</a></div>
+</footer>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="../动画库和图片/bootstrap-3.3.7-dist/js/bootstrap.js"  type="text/javascript"  charset="utf-8"></script>
+</body>
+</html>

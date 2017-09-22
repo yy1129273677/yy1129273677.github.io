@@ -1,0 +1,176 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+ul{
+    list-style-type: none;
+}
+.header{
+    background-color: rgb(245,245,245);
+}
+.header a{
+    color: #000;
+    font-size: 12px;
+}
+.header a:hover,
+.section2 a:hover{
+    color: lightseagreen;
+    text-decoration: none;
+}
+.header>.section1>.left>div:first-child a{
+    color: lightseagreen;
+    font-size: 16px;
+}
+.header>.section1,
+.header>.section1>.left,
+.header>.section1>.right{
+    display: flex;
+}
+.header>.section1{
+    justify-content: space-around;
+}
+.header>.section1>.left>div,
+.header>.section1>.right>div,
+.header>.section1>.last{
+    padding: 20px;
+    line-height: 20px;
+}
+.header>.section1>.right span,
+.section2>.box span,
+.section5 .down span{
+    background-color: red;
+    padding: 5px;
+    border-radius: 3px;
+    color: #ffffff;
+}
+.section2{
+    background-color: rgb(245,245,245);
+}
+.section2>.box{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.section2>.box>.title{
+    width: 45%;
+    text-align: center;
+    font-size: 32px;
+}
+.section2 img{
+    height: 300px;
+    width: 700px;
+}
+.section2>.box>div{
+    padding-top: 40px;
+}
+.section3 img{
+    height: 180px;
+}
+.section3>.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section3>.box>.block1{
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+    width: 700px;
+}
+.section3{
+    padding-bottom: 40px;
+}
+.section4{
+    background-color:rgb(245,245,245) ;
+    padding: 20px;
+}
+.section4>.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section4>.box>div{
+    padding-top: 40px;
+}
+.section4>.box a:hover{
+    text-decoration: none;
+}
+.section4>.box>.button span{
+    padding: 10px;
+    background-color: #cccccc;
+    border-radius: 3px;
+    color: #ffffff;
+}
+.section4>.box>.button{
+    display: flex;
+}
+.section4>.box>.button>div{
+    margin-left: 40px;
+}
+.section4>.box>.block{
+    display: flex;
+    justify-content: center;
+}
+.section4>.box>.block>div{
+    margin-left: 20px;
+    width:30%;
+}
+.section4>.box>.block .text{
+    padding-bottom: 20px;
+}
+.section5>.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section5>.box>.title{
+    text-align: center;
+}
+.section5>.box>div{
+    padding-top: 40px;
+}
+.section5 .detail{
+    width: 800px;
+}
+.section5 .detail>div{
+    padding: 20px;
+}
+.section5 .detail>div>div{
+    padding: 10px;
+}
+.section5 img{
+    height: 300px;
+}
+.section5>.box>.down{
+    text-align: center;
+}
+.section5>.box>.down a:hover{
+    text-decoration: none;
+}
+.section5>.box>.down .block{
+    display: flex;
+}
+.section5>.box>.down .block>div{
+    padding: 10px;
+}
+.section6{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color:rgb(245,245,245) ;
+    margin-top: 40px;
+    line-height: 40px;
+}
+.section6>div,
+.footer>div{
+    padding: 10px;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #cccccc;
+    line-height: 20px;
+}
