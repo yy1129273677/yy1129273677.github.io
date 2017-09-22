@@ -1,0 +1,178 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+ul{
+    list-style-type: none;
+}
+.header{
+    display: flex;
+    line-height: 44px;
+    background-color: #2e2e2e;
+    color: #ffffff;
+    justify-content: space-around;
+}
+.header>div:nth-child(2) a{
+    padding-left: 10px;
+}
+.header a{
+    text-decoration: none;
+    color: #cccccc;
+}
+.header a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+.main>.title{
+    background: orangered;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.main>.title a{
+    color: inherit;
+    text-decoration: none;
+}
+.main>.title span{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: rgb(192,73,43) ;
+}
+.main>.title a:hover span{
+    background-color: rgb(173,62,33);
+}
+.main>.time{
+    line-height: 60px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #cccccc;
+}
+.main>.time a{
+    text-decoration: none;
+    color: lightseagreen;
+}
+.main>.time a:hover{
+    text-decoration:underline;
+}
+.main>.detail>ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.main>.detail>ul a{
+    text-decoration: none;
+    color:inherit;
+}
+.main>.detail>ul li:hover{
+    background-color: pink;
+}
+.main>.detail li{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*  border:1px solid #cccccc;*/
+    line-height: 30px;
+    margin-top: 20px;
+    padding: 10px;
+}
+.main>.detail i{
+    font-size: 25px;
+    color: orangered;
+}
+.main>.section1{
+    border-bottom:1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.main>.section1>.box{
+    width: 40%;
+    line-height: 30px;
+}
+.main>.section1>.box>em{
+    color: indianred;
+}
+.main>.section1>.box>div{
+    font-size: 14px;
+    padding-top: 20px;
+}
+.main>.section1 a,
+.main>.section2 a{
+    color: lightseagreen ;
+    text-decoration: none;
+}
+.main>.section1 a:hover,
+.main>.section2 a:hover{
+    text-decoration: underline;
+}
+.main>.section2{
+    border-bottom:1px solid #cccccc;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.main>.section2>.box{
+    width:35%;
+    line-height: 40px;
+}
+.main>.section2 span{
+    display: inline-block;
+    line-height: 30px;
+    width: 60px;
+    border:1px solid #cccccc;
+    color: #000;
+}
+.main>.section2 span:hover{
+    background-color: #cccccc;
+}
+.main>.section2 .sign{
+    position: relative;
+}
+.main>.section2 .sign:after{
+    content: '';
+    border:5px solid transparent;
+    border-right: 5px solid #cccccc;
+    height:0;
+    width:0;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:100%;
+    margin:auto;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+.footer ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+.footer ul li{
+   line-height: 44px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    justify-content: center;
+}

@@ -1,0 +1,10 @@
+.header>div:nth-child(3){
+    display: none;
+}
+.main>.detail>ul{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.footer ul{
+   justify-content: space-around;
+}

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prometheus网站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="网站总体.css">
+    <link rel="stylesheet" href="网站1000px以上.css" media="screen and (min-width:1201px)">
+    <link rel="stylesheet" href="网站801px到1000px.css" media="screen and (max-width:1200px)">
+    <link rel="stylesheet" href="网站800px以内.css" media="screen and (max-width:800px)">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a href="">Prometheus</a>
+    </div>
+    <div>
+        <a href="">DOCS</a>
+        <a href="">DOWMLOAD</a>
+        <a href="">COMMUNITY</a>
+        <a href="">BLOG</a>
+        <a href="">TUPIAN1</a>
+        <a href="">TUPIAN2</a>
+    </div>
+    <div>
+        <div class="memu">
+            <a href="">图片导航</a>
+            <ul>
+                <li><a href="">DOCS</a></li>
+                <li><a href="">DOWMLOAD</a></li>
+                <li><a href="">COMMUNITY</a></li>
+                <li><a href="">BLOG</a></li>
+                <li><a href="">TUPIAN1</a></li>
+                <li><a href="">TUPIAN2</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<main class="main">
+    <div class="title">
+        <div>
+            <h1>
+                From metrics to insight
+            </h1>
+            <h2>
+                Power your metrics and alerting with a leading
+            </h2>
+            <h2>
+                open-source monitoring solution.
+            </h2>
+        </div>
+        <div>
+            <a href=""><span>GET STARTED</span></a>
+            <a href=""><span>DOWNLOAD</span></a>
+        </div>
+    </div>
+    <div class="time">
+        <a href="">CloudNativeCon Europe 2017</a>
+        <span>(March 29–30) with a dedicated</span>
+        <a href="">Prometheus track</a>
+    </div>
+    <div class="detail">
+        <ul>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class=" iconfont icon-shezhi"></i>Dimensional data
+                    </h2>
+                    <div>
+                        Prometheus implements a highly dimensional data model. Time series are identified by a metric
+                        name and a set of key-value pairs.
+                    </div>
+                </a>
+            </li>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class="icon iconfont icon-fangdajing"></i>Powerful queries
+                    </h2>
+                    <div>
+                        A flexible query language allows slicing and dicing of collected time series data in order to
+                        generate ad-hoc graphs, tables, and alerts.
+
+                    </div>
+                </a>
+            </li>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class="icon iconfont icon-8"></i>Great visualiza...
+                    </h2>
+                    <div>
+                        Prometheus has multiple modes for visualizing data: a built-in expression browser, Grafana
+                        integration, and a console template language.
+
+                    </div>
+                </a>
+            </li>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class="icon iconfont icon-kanzhang"></i>Efficient storage
+                    </h2>
+                    <div>
+                        Prometheus stores time series in memory and on local disk in an efficient custom format. Scaling
+                        is achieved by functional sharding and federation.
+
+                    </div>
+                </a>
+            </li>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class="icon iconfont icon-shaoping"></i>Simple operation
+
+                    </h2>
+                    <div>
+                        Each server is independent for reliability, relying only on local storage. Written in Go, all
+                        binaries are statically linked and easy to deploy.
+
+                    </div>
+                </a>
+            </li>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class="icon iconfont icon-hanbao"></i>Precise alerting
+                    </h2>
+                    <div>
+                        Alerts are defined based on Prometheus's flexible query language and maintain dimensional
+                        information. An alertmanager handles notifications and silencing.
+                    </div>
+                </a>
+            </li>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class="icon iconfont icon-tubiao4"></i> Many client
+                    </h2>
+                    <div>
+                        Client libraries allow easy instrumentation of services. Over ten languages are supported
+                        already and custom libraries are easy to implement.
+                    </div>
+                </a>
+            </li>
+            <li class="col-lg-3 col-md-6 col-sm-12">
+                <a href="">
+                    <h2>
+                        <i class=" iconfont icon-shezhi"></i>Many integr...
+                    </h2>
+                    <div>
+                        Existing exporters allow bridging of third-party data into Prometheus. Examples: system
+                        statistics, as well as Docker, HAProxy, StatsD, and JMX metrics.
+
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="section1">
+        <div class="box">
+            <em>«Even though Borgmon remains internal to Google, the idea of treating time-series data as a data source
+                for
+                generating alerts is now accessible to everyone through those open source tools like Prometheus [...]»
+            </em>
+            <div>-<a href="">Site Reliability Engineering: How Google Runs Production Systems</a>(O'Reilly Media)</div>
+        </div>
+    </div>
+    <div class="section2">
+        <div class="box">
+            <div class="title">
+                Open Source
+            </div>
+            <div>
+                Prometheus is 100% open source and community-driven.
+                All components are available under the
+                <a href="">Apache 2 License</a> on
+                <a href="">GitHub.</a>
+            </div>
+            <div>
+                <a href=""><span>Star</span></a>
+                <a href=""><span class="sign">8,724</span></a>
+            </div>
+            <div>
+                We are a
+                <a href="">Cloud Native Computing Foundation</a>
+                member project.
+            </div>
+            <div class="down">
+                <a href="">
+                    <img src="https://prometheus.io/assets/cncf_logo-cb5db80876e.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="title">
+        Some of our users include:
+    </div>
+    <div class="logo">
+        <ul>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Argus-cbc04f8f2b9.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Boxever-cb68bea5910.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/cesanta-cb55e32215b.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/CoreOS-cb87ca3ae0a.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/crononauta-cbac536a81e.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/digitalocean-cb08a67adb3.png" alt="">
+                </a>
+            </li>
+
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Docker-cbed8d5e698.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Ericsson-cbc7b4ff694.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Eurotech-cbb537d2291.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/giantswarm-cbd27183f7f.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Improbable-cb7f47b9828.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Jodel-cbd9d81b36a.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/MavenSecurities-cb59382c058.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Outbrain-cba597cf86d.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/Percona-cb5a7682fbc.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/quobyte-cb1c65cc370.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/RobustPerception-cb65ad3b2fc.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/ShowMax-cb1a469a782.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/shuttlecloud-cb32e043c91.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/soundcloud-cb3fb09c0c7.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/WeLearn-cbc41a45958.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/unosoft-cb99b859fed.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/variomedia-cb074f416e3.png" alt="">
+                </a>
+            </li>
+            <li class="col-lg-2 col-md-4 col-xs-6">
+                <a href="">
+                    <img src="https://prometheus.io/assets/company-logos/weave-cbbb076a3a7.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

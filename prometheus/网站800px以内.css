@@ -1,0 +1,36 @@
+.header>div:nth-child(2){
+    display: none;
+}
+.header>div:nth-child(3){
+    display: block;
+}
+.header{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+.header .memu{
+    height: 44px;
+    transition: all 0.5s linear;
+}
+.header .memu:hover{
+    height: 308px;
+}
+.header .memu>ul{
+   visibility: hidden;
+    position: absolute;
+    bottom:0;
+    left: 10px;
+}
+.header .memu:hover ul{
+   visibility: visible;
+}
+.main>.detail>ul{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.footer ul{
+    justify-content: space-around;
+}

@@ -1,0 +1,11 @@
+.header>div:nth-child(3){
+    display: none;
+}
+.main>.detail>ul{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.footer ul{
+    margin-left: 200px;
+    margin-right: 200px;
+}
